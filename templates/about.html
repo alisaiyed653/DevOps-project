@@ -1,0 +1,164 @@
+<!-- about.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Stone Choice Properties</title>
+    <style>
+        /* Base Styles */
+        body, header {
+            margin: 0;
+            padding: 0;
+            background-image: url("/static/white.jpg");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: scroll;
+            font-family: Copperplate, Papyrus, fantasy;
+            color: #333;
+            line-height: 1.6;
+            overflow-y: scroll;
+        }
+
+        /* Header Styles (consistent with home.html) */
+        #logo {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            width: 100px;
+            height: auto;
+        }
+
+        header {
+            padding: 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        h1 {
+            font-size: 50px;
+            margin-left: 150px;
+            color: #333;
+            cursor: pointer;
+        }
+
+        nav button {
+            margin: 5px;
+            font-size: 30px;
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            color: #333;
+            font-family: inherit; /* Ensure font consistency */
+        }
+
+        /* Main Content Container */
+        .content-container {
+            max-width: 800px;
+            margin: 120px auto;
+            padding: 30px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 8px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .section-title {
+            font-size: 30px;
+            font-weight: bold;
+            color: #444;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .text-block {
+            margin-bottom: 20px;
+            font-size: 16px;
+            color: #555;
+            text-align: justify;
+        }
+
+        .process-step {
+            margin-top: 30px;
+            padding: 15px;
+            border-left: 4px solid #e67e22;
+            background-color: #fdfdfd;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        .process-title {
+            font-size: 22px;
+            font-weight: bold;
+            color: #e67e22;
+            margin-bottom: 5px;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #000;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img id="logo" src="/static/scp.png" alt="Logo">
+        <h1 onclick="window.location.href='/home'">Stone Choice Properties</h1>
+        <nav>
+            <button onclick="window.location.href='/about'">About Us</button>
+            <button onclick="window.location.href='/contact'">Contact Us</button>
+        </nav>
+    </header>
+    
+    <div class="content-container">
+        <div class="section-title">Welcome to Stone Choice Properties</div>
+        <div class="text-block">
+            <p>At Stone Choice Properties, we blend expertise with a deep-rooted understanding of the local area, ensuring a seamless experience for both landlords and tenants alike. Our commitment to excellence is reflected in every stage of our process.</p>
+        </div>
+
+        <div class="section-title">Our Process</div>
+
+        <!-- 1st Stage: Procurement -->
+        <div class="process-step">
+            <div class="process-title">1st Stage: Procurement</div>
+            <p>We begin by diligently sourcing properties that meet our high standards and align with the preferences of our clients. Leveraging our extensive knowledge of the area, we identify prime locations and properties with potential for rental success. Once a suitable property is found, we negotiate with the landlord to agree on rent terms, ensuring a fair and beneficial arrangement for all parties involved. Our leases typically span a minimum of 6 months, providing stability and peace of mind to both landlords and tenants.</p>
+        </div>
+
+        <!-- 2nd Stage: Refurbishment -->
+        <div class="process-step">
+            <div class="process-title">2nd Stage: Refurbishment</div>
+            <p>To uphold our commitment to quality, we undertake minor refurbishments on selected properties. Our team of skilled professionals meticulously refurbishes each property, ensuring it meets the standards that our discerning tenants expect. From fresh coats of paint to essential repairs, we spare no effort in transforming properties into inviting homes.</p>
+        </div>
+
+        <!-- 3rd Stage: Rental Management -->
+        <div class="process-step">
+            <div class="process-title">3rd Stage: Rental Management</div>
+            <p>Once leased, we manage the property with precision and care. Rent payments are processed promptly every month, providing landlords with a reliable source of income. Moreover, we conduct regular inspections to ensure that the property is well-maintained and adheres to our high standards. Detailed inspection reports, complete with photographs, are promptly sent to landlords, offering assurance that their property is in optimal condition.</p>
+        </div>
+
+        <div class="section-title">Why Choose Stone Choice?</div>
+        <div class="text-block">
+            <p><strong>Local Expertise:</strong> Our in-depth knowledge of the area allows us to match tenants with properties that suit their needs perfectly.</p>
+            <p><strong>Quality Assurance:</strong> From procurement to management, we uphold the highest standards of quality, ensuring satisfaction for both landlords and tenants.</p>
+            <p><strong>Transparent Communication:</strong> We believe in open and transparent communication, keeping landlords informed every step of the way.</p>
+            <p><strong>Peace of Mind:</strong> With our meticulous approach to property management, landlords can enjoy peace of mind knowing that their investment is in capable hands.</p>
+        </div>
+
+        <div class="text-block">
+            <p>Experience the difference with Stone Choice Properties. Let us help you unlock the full potential of your property investment journey.</p>
+        </div>
+    </div>
+    
+    <footer class="footer">
+        © 2024 Stone Choice Properties Limited. All rights reserved.
+    </footer>
+</body>
+</html>
+

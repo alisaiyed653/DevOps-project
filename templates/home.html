@@ -1,0 +1,91 @@
+<!-- home.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <style>
+        /*CSS style*/
+        body, header {
+            margin: 0;
+            padding: 0;
+            /* Set background image */
+            background-image: url("/static/white.jpg"); /* Update the path to your image */
+            background-size: cover; /* Cover the entire container without stretching */
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: local; /* Keep background image fixed while scrolling */
+            height: 100vh; /* Set body height to viewport height */
+            overflow-y: scroll; /* Allow vertical scrolling */
+            
+        }
+        #logo {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            width: 100px; /* Adjust the width as needed */
+            height: auto; /* Maintain aspect ratio */
+        }
+        h1, nav {
+            font-family: Copperplate, Papyrus, fantasy;
+            font-size: 50px; /* Adjust the font size as needed */
+            display: inline-block;
+            vertical-align: middle;
+            margin-left: 150px;
+            cursor: pointer;
+        }
+        
+        nav button {
+            margin: 5px;
+            font-family: Copperplate, Papyrus, fantasy;
+            font-size: 30px; /* Adjust the font size as needed */
+            background-color: transparent; /* Set the background color to transparent */
+            border: none; /* Remove any border */
+            cursor: pointer; /*changes arrow to finger*/
+        }
+
+        .slogan {
+            font-family: Copperplate, Papyrus, fantasy;
+            font-size: 30px; /* Adjust the font size as needed */
+            font-weight: bold; /* Make the font bold */
+            text-align: left; /* Align text to the left */
+            line-height: 1.5; /* Set line height for readability */
+            width: fit-content; /* Make the container width fit its contents */
+            margin-top: -750px;
+            margin-left: 150px;
+        }
+
+        .footer {
+            background-color: #000; /* Black background color */
+            color: #fff; /* White text color */
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+        }
+        
+    </style>
+</head>
+<body>
+    <header>
+        <img id="logo" src="/static/scp.png" alt="Logo">
+        <h1 onclick="window.location.reload()">Stone Choice Properties</h1>
+        <nav>
+            <button onclick="window.location.href='/about'">About Us</button>
+            <button onclick="window.location.href='/contact'">Contact Us</button>
+        </nav>
+    </header>
+    <div class="slogan">
+        <p>Transform Your</p>
+        <p>Rental Experience</p>
+        <p>With Our Unique Perspective</p>
+    </div>
+    
+    <footer class="footer">
+        © 2024 Stone Choice Properties Limited. All rights reserved.
+    </footer>
+</body>
+</html>
