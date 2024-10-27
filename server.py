@@ -11,8 +11,6 @@ outlook_smtp_port = 587
 outlook_email = 'kiloo.wiloo@hotmail.co.uk'
 outlook_app_password = 'ambheta1'
 
-print("outlook emai:", outlook_email)
-print("outlook passowrd:", outlook_app_password)
 
 app = Flask(__name__)
 
@@ -55,4 +53,5 @@ def submit_contact_form():
     return render_template('thankyou.html')
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0', debug=True)
+
