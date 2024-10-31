@@ -68,4 +68,79 @@ Project to deploy a Dockerized Flask web application on AWS using Terraform, ECS
      - **Security Group Misconfiguration**: Fixed missing inbound rules to allow HTTP traffic. Adjusted Terraform code to ensure the security group was configured for HTTP access and verified the application’s availability.
 
 ---
+### 6. Integrating Jenkins for CI/CD
 
+   - **Jenkins Installation**:
+      - Installed Jenkins on an EC2 instance, configuring it to run on port 8080 for web access.
+      - Verified installation by accessing Jenkins via the public IP address.
+         
+   - **Configuring Jenkins**:
+      - GitHub Integration:
+         - Set up GitHub credentials in Jenkins under "Manage Jenkins" → "Manage Credentials."
+         - Added GitHub repository URL in the Jenkins pipeline configuration.
+         
+      - AWS Integration**:
+         - Set up Access ID and secret access key credentials to allow jenkins to connect to AWS.
+         
+      - Docker Plugin:
+         - Installed the Docker Pipeline plugin to facilitate Docker operations within Jenkins jobs.
+         
+   - **Pipeline Creation**:
+     
+        - Created a Jenkins pipeline for the project, defining stages for:
+        - Checkout: Pulling the latest code from the GitHub repository.
+        - Build Docker Image: Building the Docker image using the Dockerfile located in the repository.
+        - Login to ECR: Authenticating to the AWS ECR to allow image pushes.
+        - Push to ECR: Pushing the built image to the ECR repository.
+
+     **Pipeline Script**:
+
+   ```
+      groovy
+      pipeline {
+          agent any
+          environment {
+              ECR_REGISTRY = '255625225972.dkr.ecr.eu-west-2.amazonaws.com'
+              ECR_REPOSITORY = 'flask-web-app'
+              IMAGE_TAG = "latest"
+          }
+          stages {
+              stage('Checkout') {
+                  steps {
+                      git credentialsId: 'aws_credentials', url: 'https://github.com/alisaiyed653/DevOps-project.git'
+                  }
+              }
+              stage('Build Docker Image') {
+                  steps {
+                      script {
+                          docker.build("${ECR_REGISTRY}/${ECR_REPOSITORY}:${IMAGE_TAG}")
+                      }
+                  }
+              }
+              stage('Login to ECR') {
+                  steps {
+                      script {
+                          sh "aws ecr get-login-password --region eu-west-2 | docker login --username AWS --password-stdin ${ECR_REGISTRY}"
+                      }
+                  }
+              }
+              stage('Push to ECR') {
+                  steps {
+                      script {
+                          docker.image("${ECR_REGISTRY}/${ECR_REPOSITORY}:${IMAGE_TAG}").push()
+                      }
+                  }
+              }
+          }
+      }
+```
+
+   - **Building and Testing**:
+      - After configuring the pipeline, triggered a build in Jenkins to ensure all stages executed correctly.
+      - Observed build logs to troubleshoot issues related to Docker permissions and ECR login failures, adjusting configurations as needed.
+
+   - **Challenges Faced**:
+
+      - Disk Space Issues: Encountered low disk space errors during pipeline execution.
+      - Permission Denied Errors: Faced issues related to Docker daemon permissions, which were resolved by adding the Jenkins user to the Docker group.
+      - Git Credential Issues: Initially faced challenges accessing the GitHub repository, resolved by correctly setting up credentials in Jenkins.
