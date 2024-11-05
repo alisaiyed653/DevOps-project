@@ -1,5 +1,5 @@
 # DevOps-project
-Project to deploy a Dockerized Flask web application on AWS using Terraform, ECS, and CodePipeline. This setup showcases Infrastructure as Code (IaC) with Terraform, containerization with Docker, and CI/CD automation using AWS-native tools for a scalable cloud environment.
+Project to deploy a Dockerized Flask web application on AWS using Terraform, ECS, and Jenkins. This setup showcases Infrastructure as Code (IaC) with Terraform, containerization with Docker, and CI/CD automation using AWS-native tools for a scalable cloud environment.
 ---
 
 ## Project Summary
@@ -70,8 +70,8 @@ Project to deploy a Dockerized Flask web application on AWS using Terraform, ECS
 ---
 ### 6. Integrating Jenkins for CI/CD
 
-   - **Jenkins Installation**:
-      - Installed Jenkins on an EC2 instance, configuring it to run on port 8080 for web access.
+   - **Jenkins Installation (UPDATED)**:
+      - Previously I was laucnhing an instance on the AWS console and manually configuring and installing the dependencies as well as configuring it to run on port 8080. As I am using AWS as an individual I do not want to rack up bills and keep these instances active          continuously. As a result I added this to my terraform script and automated this process so now my updated main.tf file contains this procedure. 
       - Verified installation by accessing Jenkins via the public IP address.
          
    - **Configuring Jenkins**:
