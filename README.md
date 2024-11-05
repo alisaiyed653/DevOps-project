@@ -1,5 +1,5 @@
 # DevOps-project
-Project to deploy a Dockerized Flask web application on AWS using Terraform, ECS, and Jenkins. This setup showcases Infrastructure as Code (IaC) with Terraform, containerization with Docker, and CI/CD automation using AWS-native tools for a scalable cloud environment.
+Project to deploy a Dockerized Flask web application on AWS using Terraform, ECS, and Jenkins. This setup showcases Infrastructure as Code (IaC) with Terraform, containerization with Docker, and CI/CD automation using Jenkins for a scalable cloud environment.
 ---
 
 ## Project Summary
